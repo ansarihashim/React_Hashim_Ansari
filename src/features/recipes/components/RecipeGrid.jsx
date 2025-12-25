@@ -58,7 +58,7 @@ const RecipeGrid = () => {
   return (
     <div>
       {!query && displayItems.length > 0 && (
-        <h2 className="text-2xl font-semibold text-[#2F6F4E] text-center mb-8">Recommended Recipes</h2>
+        <h2 className="text-2xl font-bold text-[#2F6F4E] text-left mb-8 px-4">Recommended Recipes</h2>
       )}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 py-8">
         {displayItems.map((recipe) => (
