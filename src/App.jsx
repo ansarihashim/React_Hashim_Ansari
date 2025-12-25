@@ -1,21 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import MainLayout from './layouts/MainLayout';
+import SearchPage from './pages/SearchPage';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-       <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-      </div>
-      
-    </>
-  )
+    <MainLayout>
+      <SearchPage />
+    </MainLayout>
+  );
 }
 
 export default App
