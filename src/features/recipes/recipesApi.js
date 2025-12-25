@@ -8,3 +8,11 @@ export const searchRecipes = async (query) => {
   const data = await response.json();
   return data.meals || [];
 };
+
+export const fetchRandomRecipes = async (count = 8) => {
+  const promises = Array.from({ length: count }, () =>
+    fetch(`${API_BASE_URL}/random.php`).then((res) => res.json())
+  );
+  const results = await Promise.all(promises);
+  return results.map((result) => result.meals[0]).filter(Boolean);
+};

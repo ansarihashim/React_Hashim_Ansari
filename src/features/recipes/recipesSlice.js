@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { searchRecipes } from './recipesApi';
+import { searchRecipes, fetchRandomRecipes } from './recipesApi';
 
 export const fetchRecipes = createAsyncThunk(
   'recipes/fetchRecipes',
@@ -9,10 +9,19 @@ export const fetchRecipes = createAsyncThunk(
   }
 );
 
+export const fetchRecommendedRecipes = createAsyncThunk(
+  'recipes/fetchRecommendedRecipes',
+  async () => {
+    const recipes = await fetchRandomRecipes(8);
+    return recipes;
+  }
+);
+
 const recipesSlice = createSlice({
   name: 'recipes',
   initialState: {
     items: [],
+    recommendedMeals: [],
     loading: false,
     error: null,
     query: '',
@@ -37,6 +46,18 @@ const recipesSlice = createSlice({
         state.items = action.payload;
       })
       .addCase(fetchRecipes.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(fetchRecommendedRecipes.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchRecommendedRecipes.fulfilled, (state, action) => {
+        state.loading = false;
+        state.recommendedMeals = action.payload;
+      })
+      .addCase(fetchRecommendedRecipes.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       });

@@ -1,8 +1,20 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchRecommendedRecipes } from '../recipesSlice';
 import RecipeCard from './RecipeCard';
 
 const RecipeGrid = () => {
-  const { items, loading, error } = useSelector((state) => state.recipes);
+  const dispatch = useDispatch();
+  const { items, recommendedMeals, loading, error, query } = useSelector((state) => state.recipes);
+
+  useEffect(() => {
+    if (!query && recommendedMeals.length === 0) {
+      dispatch(fetchRecommendedRecipes());
+    }
+  }, [dispatch, query, recommendedMeals.length]);
+
+  const displayItems = query ? items : recommendedMeals;
+  const showEmptyState = query && items.length === 0;
 
   if (loading) {
     return (
@@ -21,7 +33,7 @@ const RecipeGrid = () => {
     );
   }
 
-  if (items.length === 0) {
+  if (showEmptyState) {
     return (
       <div className="text-center py-20">
         <svg
@@ -44,10 +56,15 @@ const RecipeGrid = () => {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 py-8">
-      {items.map((recipe) => (
-        <RecipeCard key={recipe.idMeal} recipe={recipe} />
-      ))}
+    <div>
+      {!query && displayItems.length > 0 && (
+        <h2 className="text-2xl font-semibold text-[#2F6F4E] text-center mb-8">Recommended Recipes</h2>
+      )}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 py-8">
+        {displayItems.map((recipe) => (
+          <RecipeCard key={recipe.idMeal} recipe={recipe} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,11 +1,11 @@
 const Navbar = () => {
   return (
-    <nav className="bg-emerald-600 px-8 h-16 shadow-md">
+    <nav className="bg-[#2F6F4E] px-8 h-16 shadow-md">
       <div className="max-w-7xl mx-auto h-full flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <div className="bg-white p-2 rounded-full">
             <svg
-              className="w-5 h-5 text-emerald-600"
+              className="w-5 h-5 text-[#2F6F4E]"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -34,7 +34,7 @@ const Navbar = () => {
           >
             List
           </a>
-          <button className="bg-white hover:bg-green-50 text-emerald-600 px-6 py-2 rounded-full font-medium flex items-center space-x-2 transition-colors shadow-md ml-2">
+          <button className="bg-white hover:bg-green-50 text-[#2F6F4E] px-6 py-2 rounded-full font-medium flex items-center space-x-2 transition-colors shadow-md ml-2">
             <svg
               className="w-5 h-5"
               fill="none"
