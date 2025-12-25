@@ -34,17 +34,18 @@ const SearchBar = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="w-full max-w-3xl mx-auto">
       <div className="relative">
         <input
           type="text"
           value={query}
           onChange={handleSearch}
-          className="w-full h-14 pl-6 pr-16 rounded-full bg-[#E8F5EC] focus:outline-none focus:ring-2 focus:ring-[#2F6F4E] focus:ring-opacity-30 text-gray-700 shadow-sm"
+          placeholder="Search recipes, ingredients, or cuisines..."
+          className="w-full h-16 pl-6 pr-16 rounded-full bg-[#E8F5EC] focus:outline-none focus:ring-2 focus:ring-[#2F6F4E] focus:ring-opacity-40 text-gray-800 text-lg placeholder-gray-500 shadow-md"
         />
-        <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#2F6F4E] hover:bg-[#25593D] text-white p-2.5 rounded-full transition-colors shadow-md">
+        <button className="absolute right-3 top-1/2 -translate-y-1/2 bg-[#2F6F4E] hover:bg-[#25593D] text-white p-3 rounded-full transition-colors shadow-lg">
           <svg
-            className="w-5 h-5"
+            className="w-6 h-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
