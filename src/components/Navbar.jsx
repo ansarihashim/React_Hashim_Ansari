@@ -22,6 +22,12 @@ const Navbar = () => {
             Home
           </Link>
           <Link
+            to="/search"
+            className="text-white hover:opacity-80 transition-opacity font-medium"
+          >
+            Recipes
+          </Link>
+          <Link
             to="/meal-planner"
             className="text-white hover:opacity-80 transition-opacity font-medium"
           >
