@@ -40,7 +40,7 @@ const ShoppingListPage = () => {
           {hasItems && (
             <button
               onClick={handleClearList}
-              className="border-2 border-[#2F6F4E] text-[#2F6F4E] px-6 py-2 rounded-full font-medium hover:bg-[#2F6F4E] hover:text-white transition-colors"
+              className="border-2 border-[#2F6F4E] text-[#2F6F4E] px-6 py-2 rounded-full font-medium hover:bg-[#2F6F4E] hover:text-white transition-all duration-300 shadow-sm hover:shadow-md"
             >
               Clear List
             </button>
@@ -56,7 +56,7 @@ const ShoppingListPage = () => {
                 return (
                   <div
                     key={index}
-                    className={`flex items-center justify-between bg-white rounded-lg p-4 shadow-sm transition-all ${
+                    className={`flex items-center justify-between bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-200 ${
                       purchased ? 'opacity-60' : ''
                     }`}
                   >

@@ -14,6 +14,7 @@ const RecipeDetailPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedDay, setSelectedDay] = useState('Monday');
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [isNavigating, setIsNavigating] = useState(false);
 
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
@@ -70,7 +71,14 @@ const RecipeDetailPage = () => {
     }
   };
 
-  if (loading) {
+  const handleBack = () => {
+    setIsNavigating(true);
+    setTimeout(() => {
+      navigate(-1);
+    }, 400);
+  };
+
+  if (loading || isNavigating) {
     return (
       <div className="flex justify-center items-center py-20">
         <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-[#2F6F4E]"></div>
@@ -116,7 +124,7 @@ const RecipeDetailPage = () => {
       
       <div className="relative z-10 max-w-7xl mx-auto px-8 py-10">
         <button
-          onClick={() => navigate(-1)}
+          onClick={handleBack}
           className="mb-6 flex items-center text-[#2F6F4E] hover:text-[#25593D] font-medium transition-colors"
         >
         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

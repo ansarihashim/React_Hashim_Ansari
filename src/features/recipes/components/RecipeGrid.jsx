@@ -19,7 +19,7 @@ const RecipeGrid = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-20">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-green-600"></div>
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-[#2F6F4E]"></div>
       </div>
     );
   }
@@ -37,7 +37,7 @@ const RecipeGrid = () => {
     return (
       <div className="text-center py-20">
         <svg
-          className="w-24 h-24 mx-auto mb-4 text-gray-300"
+          className="w-24 h-24 mx-auto mb-4 text-[#2F6F4E] opacity-30"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -49,8 +49,8 @@ const RecipeGrid = () => {
             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
           />
         </svg>
-        <h3 className="text-xl font-semibold text-gray-700 mb-2">No recipes found</h3>
-        <p className="text-gray-500">Try searching for a different dish or ingredient</p>
+        <h3 className="text-xl font-semibold text-[#2F6F4E] mb-2">No recipes found</h3>
+        <p className="text-[#2F6F4E] opacity-60">Try searching for a different dish or ingredient</p>
       </div>
     );
   }

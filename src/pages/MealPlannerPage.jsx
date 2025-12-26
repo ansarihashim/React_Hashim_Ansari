@@ -37,7 +37,7 @@ const MealPlannerPage = () => {
             </div>
             <button
               onClick={handleClearAll}
-              className="bg-[#D4E8DD] hover:bg-[#C4D8CD] text-[#2F6F4E] p-3 rounded-full transition-colors shadow-sm"
+              className="bg-[#D4E8DD] hover:bg-[#2F6F4E] hover:text-white text-[#2F6F4E] p-3 rounded-full transition-all duration-300 shadow-sm hover:shadow-md"
               title="Clear all meals"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -59,7 +59,7 @@ const MealPlannerPage = () => {
                     {dayMeals.length > 0 && (
                       <button
                         onClick={() => handleClearDay(day)}
-                        className="hover:bg-[#25593D] p-1 rounded transition-colors"
+                        className="hover:bg-[#25593D] p-1 rounded transition-all duration-200"
                         title={`Clear ${day}`}
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -93,7 +93,7 @@ const MealPlannerPage = () => {
                             </div>
                             <button
                               onClick={() => handleRemoveMeal(day, meal.idMeal)}
-                              className="absolute top-2 right-2 bg-white/90 hover:bg-white p-1.5 rounded-full transition-colors shadow-md"
+                              className="absolute top-2 right-2 bg-white/90 hover:bg-white p-1.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg"
                             >
                               <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
