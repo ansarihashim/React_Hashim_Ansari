@@ -1,17 +1,15 @@
+import iconImage from '../assets/Icon.png';
+
 const Navbar = () => {
   return (
     <nav className="bg-[#2F6F4E] px-8 h-16 shadow-md">
       <div className="max-w-7xl mx-auto h-full flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <div className="bg-white p-2 rounded-full">
-            <svg
-              className="w-5 h-5 text-[#2F6F4E]"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
-            </svg>
-          </div>
+          <img
+            src={iconImage}
+            alt="Recipe Planner Icon"
+            className="w-10 h-10"
+          />
           <span className="text-white font-semibold text-xl">Recipe Planner</span>
         </div>
 

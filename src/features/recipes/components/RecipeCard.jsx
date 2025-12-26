@@ -1,6 +1,17 @@
+import { useNavigate } from 'react-router-dom';
+
 const RecipeCard = ({ recipe }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/recipe/${recipe.idMeal}`);
+  };
+
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-transparent hover:border-[#2F6F4E]">
+    <div
+      onClick={handleClick}
+      className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-transparent hover:border-[#2F6F4E] cursor-pointer"
+    >
       <div className="aspect-square overflow-hidden">
         <img
           src={recipe.strMealThumb}

@@ -16,3 +16,12 @@ export const fetchRandomRecipes = async (count = 8) => {
   const results = await Promise.all(promises);
   return results.map((result) => result.meals[0]).filter(Boolean);
 };
+
+export const fetchRecipeById = async (id) => {
+  const response = await fetch(`${API_BASE_URL}/lookup.php?i=${id}`);
+  if (!response.ok) {
+    throw new Error('Failed to fetch recipe details');
+  }
+  const data = await response.json();
+  return data.meals ? data.meals[0] : null;
+};
