@@ -25,6 +25,15 @@ const recipesSlice = createSlice({
     loading: false,
     error: null,
     query: '',
+    mealPlan: {
+      Monday: [],
+      Tuesday: [],
+      Wednesday: [],
+      Thursday: [],
+      Friday: [],
+      Saturday: [],
+      Sunday: [],
+    },
   },
   reducers: {
     setQuery: (state, action) => {
@@ -33,6 +42,31 @@ const recipesSlice = createSlice({
     clearRecipes: (state) => {
       state.items = [];
       state.error = null;
+    },
+    addToMealPlan: (state, action) => {
+      const { day, recipe, mealType } = action.payload;
+      if (state.mealPlan[day]) {
+        state.mealPlan[day].push({ ...recipe, mealType });
+      }
+    },
+    removeFromMealPlan: (state, action) => {
+      const { day, recipeId } = action.payload;
+      if (state.mealPlan[day]) {
+        state.mealPlan[day] = state.mealPlan[day].filter(
+          (meal) => meal.idMeal !== recipeId
+        );
+      }
+    },
+    clearDay: (state, action) => {
+      const day = action.payload;
+      if (state.mealPlan[day]) {
+        state.mealPlan[day] = [];
+      }
+    },
+    clearAllMeals: (state) => {
+      Object.keys(state.mealPlan).forEach((day) => {
+        state.mealPlan[day] = [];
+      });
     },
   },
   extraReducers: (builder) => {
@@ -64,5 +98,5 @@ const recipesSlice = createSlice({
   },
 });
 
-export const { setQuery, clearRecipes } = recipesSlice.actions;
+export const { setQuery, clearRecipes, addToMealPlan, removeFromMealPlan, clearDay, clearAllMeals } = recipesSlice.actions;
 export default recipesSlice.reducer;

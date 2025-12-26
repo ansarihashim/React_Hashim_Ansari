@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import iconImage from '../assets/Icon.png';
 
 const Navbar = () => {
@@ -14,18 +15,18 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-6">
-          <a
-            href="#"
+          <Link
+            to="/"
             className="text-white hover:opacity-80 transition-opacity font-medium"
           >
             Home
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/meal-planner"
             className="text-white hover:opacity-80 transition-opacity font-medium"
           >
             Meals
-          </a>
+          </Link>
           <a
             href="#"
             className="text-white hover:opacity-80 transition-opacity font-medium"
